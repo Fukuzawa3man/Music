@@ -6,10 +6,11 @@ import java.awt.event.KeyListener;
 import java.awt.*;
 import javax.swing.*;
 
-
 public class Main extends JFrame implements KeyListener{
    public JLabel label1;
     int key=0;
+    int pich[] = {84,60,62,64,64,72,74,79,74,86,79,74,79,76,79,84,48,65,58,63,65,61,60,67,64,65,58,65,53,60,65,63,51,50,53,59,62,68,67,65,63,62,47,50,55,62,79,47};
+    int n=0;
 
     public static void main(String[] args) {
 
@@ -51,11 +52,13 @@ public class Main extends JFrame implements KeyListener{
 
             //音の高さ48、強さ127で1秒間鳴らす
             if(key==1) {
-                channel.noteOn(48, 127);
+                channel.noteOn(pich[n], 127);
             }else{
                 channel.noteOff(128);
                 //Synsesizerを閉じる
                 synthesizer.close();
+                n++;
+
             }
         } catch(Exception e){
             if(channel != null)  channel.allNotesOff();
@@ -64,10 +67,12 @@ public class Main extends JFrame implements KeyListener{
 
 
     public void keyPressed(KeyEvent e){
-        key=1;
-        MIDI(key);
-        label1.setText("押されたで");
-        repaint();
+        if(key==0) {
+            key = 1;
+            MIDI(key);
+            label1.setText("押されたで");
+            repaint();
+        }
     }
 
     public void keyReleased(KeyEvent e){
