@@ -14,7 +14,7 @@ public class Main extends JFrame implements KeyListener{
 
     public static void main(String[] args) {
 
-        Main aa= new Main("ピアノ協奏曲1番 蠍火");
+        Main aa= new Main("ピアノ協奏曲第1番 蠍火");
         aa.setVisible(true);
     }
 
@@ -34,7 +34,7 @@ public class Main extends JFrame implements KeyListener{
         Container contentPane= getContentPane();
         contentPane.add(p);
     }
-
+//MIDIを鳴らすやつ
     public void MIDI(int key){
         MidiChannel channel = null;
         try {
