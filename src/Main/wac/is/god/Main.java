@@ -34,6 +34,8 @@ public class Main extends JFrame implements KeyListener{
         Container contentPane= getContentPane();
         contentPane.add(p);
     }
+
+    public Main(){ };
 //MIDIを鳴らすやつ
     public void MIDI(int key){
         MidiChannel channel = null;
@@ -81,5 +83,10 @@ public class Main extends JFrame implements KeyListener{
     public void keyTyped(KeyEvent e){
 
     }
+
+    public void setKey(int key) {
+        this.key = key;
     }
+
+}
 
